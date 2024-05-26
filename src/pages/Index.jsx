@@ -1,18 +1,51 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Box, Container, Flex, Heading, Text, VStack, HStack, Link, Spacer } from "@chakra-ui/react";
+import { FaNewspaper, FaChartLine, FaInfoCircle } from "react-icons/fa";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
+    <Container maxW="container.xl" p={0}>
+      <Flex as="nav" bg="gray.800" color="white" p={4} align="center">
+        <Heading size="lg">Financial Times</Heading>
+        <Spacer />
+        <HStack spacing={8}>
+          <Link href="#news" fontSize="lg">News</Link>
+          <Link href="#markets" fontSize="lg">Markets</Link>
+          <Link href="#about" fontSize="lg">About</Link>
+        </HStack>
+      </Flex>
+
+      <Box as="section" id="news" p={8}>
+        <Heading size="md" mb={4}><FaNewspaper /> News Articles</Heading>
+        <VStack spacing={4} align="start">
+          <Box p={4} shadow="md" borderWidth="1px">
+            <Heading size="sm">Article 1</Heading>
+            <Text mt={2}>Summary of the first news article...</Text>
+          </Box>
+          <Box p={4} shadow="md" borderWidth="1px">
+            <Heading size="sm">Article 2</Heading>
+            <Text mt={2}>Summary of the second news article...</Text>
+          </Box>
+        </VStack>
+      </Box>
+
+      <Box as="section" id="markets" p={8} bg="gray.50">
+        <Heading size="md" mb={4}><FaChartLine /> Market Data</Heading>
+        <VStack spacing={4} align="start">
+          <Box p={4} shadow="md" borderWidth="1px">
+            <Heading size="sm">Market Overview</Heading>
+            <Text mt={2}>Summary of the market data...</Text>
+          </Box>
+          <Box p={4} shadow="md" borderWidth="1px">
+            <Heading size="sm">Stock Prices</Heading>
+            <Text mt={2}>Summary of the stock prices...</Text>
+          </Box>
+        </VStack>
+      </Box>
+
+      <Box as="section" id="about" p={8}>
+        <Heading size="md" mb={4}><FaInfoCircle /> About Us</Heading>
+        <Text>Information about the Financial Times...</Text>
+      </Box>
     </Container>
   );
 };
